@@ -14,7 +14,7 @@
             <org.lockss.daemon.ConfigParamDescr>
                 <key>container_number</key>
                 <displayName>Container No.</displayName>
-                <description>PKPPLN content is organized in containers of a similar size</description>
+                <description>WestVault content is organized in containers of a similar size</description>
                 <type>6</type>
                 <size>8</size>
                 <definitional>true</definitional>
@@ -42,11 +42,11 @@
     </entry>
     <entry>
         <string>plugin_version</string>
-        <string>7</string>
+        <string>1</string>
     </entry>
     <entry>
         <string>au_name</string>
-        <string>"Preserved content from OJS journals, part %d", container_number</string>
+        <string>"Preserved content from WestVault, part %d", container_number</string>
     </entry>
     <entry>
         <string>au_permission_url</string>
@@ -72,7 +72,7 @@
     </entry>
     <entry>
         <string>plugin_name</string>
-        <string>Simon Fraser University Library PKP PLN Plugin</string>
+        <string>COPPUL WestVault Plugin</string>
     </entry>
     <entry>
         <string>au_refetch_depth</string>
@@ -80,7 +80,7 @@
     </entry>
     <entry>
         <string>plugin_identifier</string>
-        <string>ca.sfu.lib.plugin.pkppln.PkpPlnPlugin</string>
+        <string>ca.sfu.lib.plugin.coppul.WestVaultPlugin</string>
     </entry>
     <entry>
         <string>au_crawlrules</string>

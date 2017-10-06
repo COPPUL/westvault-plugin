@@ -2,7 +2,7 @@
 
 <project name="Pkp Pln Plugin" default="build" basedir=".">
 
-  <property name='plugin.name' value='PkpPlnPlugin'/>
+  <property name='plugin.name' value='WestVaultPlugin'/>
   <property name='plugin.path' value='ca/sfu/lib/plugin' />
   
   <property name='plugin.xml' value="${plugin.name}.xml" />
