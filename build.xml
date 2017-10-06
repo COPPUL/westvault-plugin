@@ -24,6 +24,18 @@
     </jar>
   </target>
 
+  <target name="sign-plugin" depends="build"
+	  description="Sign a loadable plugin JAR file">
+    <!-- relies on the properties: plugin-jarfile -->
+    <signjar 
+		jar="${build.dir}/${plugin.jar}"
+		signedJar="${plugin.jar}"
+    	keystore="${sign-keystore}"
+		keypass="${sign-keypass}"
+		storepass="${sign-keypass}"
+		alias="${sign-alias}"/>
+  </target>
+
   <target name="clean" description="Clean up the build files.">
     <delete dir="${build.dir}"/>
   </target>
