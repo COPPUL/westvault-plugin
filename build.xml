@@ -1,43 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<project name="Pkp Pln Plugin" default="build" basedir=".">
-
-  <property name='plugin.name' value='WestVaultPlugin'/>
-  <property name='plugin.path' value='ca/sfu/lib/plugin' />
-  
-  <property name='plugin.xml' value="${plugin.name}.xml" />
-  <property name='plugin.jar' value="${plugin.name}.jar" />
-  
-  <property name='build.dir' value='build'/>
-  
-  <target name="build" description="Generate an unsigned LOCKSS plugin jar.">
-    <mkdir dir="${build.dir}" />    
-    <jar destfile="${build.dir}/${plugin.jar}">
-      <fileset dir=".">
-	<include name="${plugin.path}/${plugin.xml}"/>
-      </fileset>
-      <manifest>
-	<section name="${plugin.path}/${plugin.xml}" >
-	  <attribute name="Lockss-Plugin" value="true" />
-	</section>
-      </manifest>
-    </jar>
-  </target>
-
-  <target name="sign-plugin" depends="build"
-	  description="Sign a loadable plugin JAR file">
-    <!-- relies on the properties: plugin-jarfile -->
-    <signjar 
-		jar="${build.dir}/${plugin.jar}"
-		signedJar="${plugin.jar}"
-    	keystore="${sign-keystore}"
-		keypass="${sign-keypass}"
-		storepass="${sign-keypass}"
-		alias="${sign-alias}"/>
-  </target>
-
-  <target name="clean" description="Clean up the build files.">
-    <delete dir="${build.dir}"/>
-  </target>
-  
+<project name="WestVault Pln Plugin" default="build" basedir=".">
+	<property name="plugin.name" value="WestVaultPlugin"/>
+	<property name="plugin.path" value="ca/sfu/lib/plugin/coppul"/>
+	<property name="plugin.xml" value="${plugin.name}.xml"/>
+	<property name="plugin.jar" value="${plugin.name}.jar"/>
+	<property name="build.dir" value="build"/>
+	
+	<target name="build" description="Generate an unsigned LOCKSS plugin jar.">
+		<mkdir dir="${build.dir}"/>
+		<jar destfile="${build.dir}/${plugin.jar}">
+			<fileset dir=".">
+				<include name="${plugin.path}/${plugin.xml}"/>
+			</fileset>
+			<manifest>
+				<section name="${plugin.path}/${plugin.xml}">
+					<attribute name="Lockss-Plugin" value="true"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="sign-plugin" depends="build" description="Sign a loadable plugin JAR file">
+		<!-- relies on the properties: plugin-jarfile -->
+		<signjar jar="${build.dir}/${plugin.jar}" signedJar="${plugin.jar}" keystore="${sign-keystore}" keypass="${sign-keypass}" storepass="${sign-keypass}" alias="${sign-alias}"/>
+	</target>
+	
+	<target name="clean" description="Clean up the build files.">
+		<delete dir="${build.dir}"/>
+		<delete file="${plugin.jar}"/>
+	</target>
 </project>
